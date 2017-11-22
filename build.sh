@@ -1,6 +1,8 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+set -euo pipefail
 
 rm -rf out
 rm -rf out.js
 java -cp cljs-1.9.946.jar:src clojure.main compile.clj
-cat out.js
+pretty-js < out.js > out.pretty.js
